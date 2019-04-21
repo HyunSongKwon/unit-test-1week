@@ -17,14 +17,11 @@ public class ChampionTest {
 
     @Before
     public void setUp(){
-        //5개의 챔피언 객체를 만듭니다.
         Champion topChamp = new Champion("다리우스","탑");
         Champion jungleChamp = new Champion("리신","정글");
         Champion midChamp = new Champion("르블랑","미드");
         Champion adcChamp = new Champion("베인", "바텀");
         Champion supportChamp = new Champion("레오나", "바텀");
-
-        //앞서 만든 List 에 각 챔피언을 추가합니다.
         championList.add(topChamp);
         championList.add(jungleChamp);
         championList.add(midChamp);
@@ -55,7 +52,6 @@ public class ChampionTest {
 
     @Test
     public void FloatCheck() {
-        // (hamcrest)실값 3.14, 기댓값 3, 오차허용 2
         assertThat(3.14, closeTo(3, 2));
         // (junit)기댓값 3.14, 실값 3, 오차허용 2
         assertEquals(3.14, 3, 2);
@@ -63,14 +59,12 @@ public class ChampionTest {
 
     @Test
     public void shouldNotErrorGetReference() {
-        // 2가 아닌 5 이상의 값을 참조할 경우에는 에러 발생
-
         for(int i=0; i<1000; i++)
             assertThat(championList.get(2), anything());
     }
 
 
-    // 사이즈 5인지 체크
+
     @Test
     public void shouldChampionCountFive() {
         assertThat(championList.size(), is(5));
@@ -86,14 +80,14 @@ public class ChampionTest {
     }
 
 
-    // 포지션 갖고있는지?
+
     @Test
     public void shouldHasPropertyPosition () {
         assertThat(championList.get(0), hasProperty("position"));
         assertThat(championList.get(0), hasProperty("position", equalTo("탑")));
     }
 
-    // 챔피언
+
     @Test
     public void shouldHaveSomeChampName() {
         List<String> championNames;
